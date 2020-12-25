@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "mercurial-discord", "mercurial-discord.pyproj", "{6FADD928-2EFA-4054-9B03-8E69E7E561C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6FADD928-2EFA-4054-9B03-8E69E7E561C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FADD928-2EFA-4054-9B03-8E69E7E561C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {411D198F-66E6-42FD-86FE-057FC80F4ED7}
+	EndGlobalSection
+EndGlobal
