@@ -31,7 +31,7 @@ def incoming(ui, repo, node, **kwargs):
     }
 
     description = ctx.description().strip()
-    lineBreak = description.index("\n")
+    lineBreak = description.find("\n")
     if lineBreak >= 0:
         title = description[:lineBreak].strip()
         description = description[lineBreak:].strip()
