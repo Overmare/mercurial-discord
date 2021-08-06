@@ -2,23 +2,23 @@ import hooks
 
 class Ctx:
     def branch(self):
-        return "default"
+        return b"default"
 
     def description(self):
-        return "Did a thing\nhala hala hala burr durr twang"
+        return b"Did a thing\nsecond line of text"
 
     def files(self):
-        return ["code.cpp"]
+        return [b"code.cpp"]
 
     def hex(self):
-        return "1234567890abcdef1234567890abcdef12345678"
+        return b"1234567890abcdef1234567890abcdef12345678"
 
     def user(self):
-        return "Anonymous"
+        return b"Anonymous"
 
 class UI:
     def write(self, msg):
-        print(msg)
+        print(msg.decode("utf-8"))
 
 hooks.incoming(UI(), [Ctx()], 0)
 print("Done")
