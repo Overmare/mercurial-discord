@@ -1,4 +1,5 @@
-EXTENSIONS = [ "bat", "cginc", "compute", "cpp", "cs", "groovy", "h", "js", "lua", "py", "shader"]
+EXTENSIONS = [ "bat", "cginc", "compute", "cpp", "cs", "groovy", "h", "hgignore", "js", "lua", "py",
+    "shader"]
 
 import json, os, re, urllib.error, urllib.request
 
@@ -46,7 +47,7 @@ def incoming(ui, repo, node, **kwargs):
 
     request = urllib.request.Request(secrets["webhookUrl"],
         json.dumps({ "embeds": [embed] }).encode("utf-8"),
-        { "Content-Type": "application/json", "User-Agent": "Mercurial/4.0" })
+        { "Content-Type": "application/json", "User-Agent": "Mercurial/5.8" })
 
     try:
         urllib.request.urlopen(request)
