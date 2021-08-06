@@ -1,6 +1,6 @@
 EXTENSIONS = [ "bat", "cginc", "compute", "cpp", "cs", "groovy", "h", "js", "lua", "py", "shader"]
 
-import json, os, re, urllib2
+import json, os, re, urllib.error, urllib.request
 
 def EscapeMarkdown(str):
     return str.re
@@ -44,11 +44,12 @@ def incoming(ui, repo, node, **kwargs):
     if description:
         embed["description"] = description
 
-    request = urllib2.Request(secrets["webhookUrl"], json.dumps({ "embeds": [embed] }),
+    request = urllib.request.Request(secrets["webhookUrl"],
+        json.dumps({ "embeds": [embed] }).encode("utf-8"),
         { "Content-Type": "application/json", "User-Agent": "Mercurial/4.0" })
 
     try:
-        urllib2.urlopen(request)
-    except URLError as ex:
+        urllib.request.urlopen(request)
+    except urllib.error.URLError as ex:
         ui.write("Discord incoming hook web request failed because " + str(ex))
         return
