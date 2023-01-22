@@ -1,17 +1,11 @@
-EXTENSIONS = [ "bat", "cginc", "compute", "cpp", "cs", "groovy", "h", "hgignore", "js", "lua", "py",
-    "shader"]
-
-import json, os, re, urllib.error, urllib.request
+import json, os, urllib.error, urllib.request
+from mercurial import util
 
 def EscapeMarkdown(str):
     return str # TODO
 
 def incoming(ui, repo, node, **kwargs):
     ctx = repo[node]
-
-    pattern = r"\.(?:" + "|".join(EXTENSIONS) + ")$"
-    if not any(re.search(pattern, i.decode("utf-8")) != None for i in ctx.files()):
-        return
 
     try:
         secretsPath = os.path.dirname(os.path.abspath(__file__)) + "/secrets.txt";
@@ -47,7 +41,7 @@ def incoming(ui, repo, node, **kwargs):
 
     request = urllib.request.Request(secrets["webhookUrl"],
         json.dumps({ "embeds": [embed] }).encode("utf-8"),
-        { "Content-Type": "application/json", "User-Agent": "Mercurial/5.8" })
+        { "Content-Type": "application/json", "User-Agent": "Mercurial/" + util.version().decode("utf-8") })
 
     try:
         urllib.request.urlopen(request)

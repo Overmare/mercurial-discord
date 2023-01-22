@@ -1,11 +1,12 @@
 import hooks
+from mercurial import util
 
 class Ctx:
     def branch(self):
         return b"default"
 
     def description(self):
-        return b"Did a thing\nsecond line of text"
+        return ("Did a thing\nMercurial version is " + util.version().decode("utf-8")).encode("utf-8")
 
     def files(self):
         return [b"code.cpp"]
